@@ -58,19 +58,19 @@ while True:
     menu_choice = int(input(main_menu))
 
     # Add if/else statements for each menu item
-    if menu_choice == 1:
+    if menu_choice == 1: #print the list
         indexes = range(len(groceries))
         for i in indexes:
             item = groceries[i]
             print(f'{i}: {item}')
-    elif menu_choice == 2:
+    elif menu_choice == 2: #add items to the list
         # Prompt for a new item until the just hit Enter
         while True:
             item = input('What do you need from the store? ')
-            if item == '':  # Alternatively: check if len(item) == 0
+            if item == '':
                 break
             groceries.append(item)
-    elif menu_choice == 3:
+    elif menu_choice == 3: #removing groups of items
         indexes = range(len(groceries))
         for i in indexes:
             item = groceries[i]
@@ -94,34 +94,16 @@ while True:
                     break
                 replacements.append(new_item)
             groceries[start_index_to_replace:end_index_to_replace] = replacements
-    elif menu_choice == 4:
+    elif menu_choice == 4: #deleting items
         indexes = range(len(groceries))
         for i in indexes:
             item = groceries[i]
             print(f'{i}: {item}')
         item_2b_deleted = int(input('Enter the item number to be deleted. '))
-        del groceries[item_2b_deleted]
-
-
-
-
-#print(main_menu)    
-    # For each of these, add in code to handle adding/editing/removing items
-
-    elif menu_choice == 5:
+    elif menu_choice == 5: #quit
         break
 
-
-# Print the grocery list with indexes
-indexes = range(len(groceries))
-for i in indexes:
-    item = groceries[i]
-    print(f'{i}: {item}')
-
-
-
-
-# - print the updated combined list
+# - print the updated list and end
 for i in indexes:
     item = groceries[i]
     print(f'{i}: {item}')
