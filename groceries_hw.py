@@ -40,7 +40,7 @@ Update the "Print Items" output so that it shows whether or not an item has been
 
 
 groceries = []
-groceries = ['milk', 'cheese', 'coffee', 'chips', 'salsa']
+groceries = ['milk', 'cheese', 'coffee', 'chips', 'salsa', 'steak', 'potatoes', 'lettus']
 main_menu = '''
 
 1. Print List
@@ -71,6 +71,10 @@ while True:
                 break
             groceries.append(item)
     elif menu_choice == 3:
+        indexes = range(len(groceries))
+        for i in indexes:
+            item = groceries[i]
+            print(f'{i}: {item}')
         # Give them the chance to replace 
         start_index_to_replace = int(input('What start index to replace? '))
         end_index_to_replace = int(input('What end index to replace? '))
@@ -90,6 +94,14 @@ while True:
                     break
                 replacements.append(new_item)
             groceries[start_index_to_replace:end_index_to_replace] = replacements
+    elif menu_choice == 4:
+        indexes = range(len(groceries))
+        for i in indexes:
+            item = groceries[i]
+            print(f'{i}: {item}')
+        item_2b_deleted = int(input('Enter the item number to be deleted. '))
+        del groceries[item_2b_deleted]
+
 
 
 
