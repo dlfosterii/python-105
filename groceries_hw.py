@@ -40,7 +40,7 @@ Update the "Print Items" output so that it shows whether or not an item has been
 
 
 groceries = []
-
+groceries = ['milk', 'cheese', 'coffee', 'chips', 'salsa']
 main_menu = '''
 
 1. Print List
@@ -70,7 +70,27 @@ while True:
             if item == '':  # Alternatively: check if len(item) == 0
                 break
             groceries.append(item)
-    #elif menu_choice == 3:
+    elif menu_choice == 3:
+        # Give them the chance to replace 
+        start_index_to_replace = int(input('What start index to replace? '))
+        end_index_to_replace = int(input('What end index to replace? '))
+
+        if start_index_to_replace == end_index_to_replace:
+            # Prompt the user for the new item
+            new_item = input('What is the new item? ')
+
+            # - replace the item at that index with the new item
+            groceries[start_index_to_replace] = new_item
+        else:
+            # gather replacements
+            replacements = []
+            while True:
+                new_item = input('What is the new item? ')
+                if new_item == '':
+                    break
+                replacements.append(new_item)
+            groceries[start_index_to_replace:end_index_to_replace] = replacements
+
 
 
 #print(main_menu)    
@@ -79,12 +99,6 @@ while True:
     elif menu_choice == 5:
         break
 
-# Start with an empty grocery list
-groceries = ['cow', 'chicken', 'mustard', 'eggs', 'bread', 'cheese']
-
-
-
-# After we break, python will move to the next unindented line of code after the loop
 
 # Print the grocery list with indexes
 indexes = range(len(groceries))
@@ -92,30 +106,7 @@ for i in indexes:
     item = groceries[i]
     print(f'{i}: {item}')
 
-# Give them the chance to replace 
-start_index_to_replace = int(input('What start index to replace? '))
-end_index_to_replace = int(input('What end index to replace? '))
 
-if start_index_to_replace == end_index_to_replace:
-    # Prompt the user for the new item
-    new_item = input('What is the new item? ')
-
-    # - replace the item at that index with the new item
-    groceries[start_index_to_replace] = new_item
-else:
-    # gather replacements
-    replacements = []
-    while True:
-        new_item = input('What is the new item? ')
-        if new_item == '':
-            break
-        replacements.append(new_item)
-        print(replacements)
-    print('-------about to do weird thing--------')
-    print(groceries)
-    groceries[start_index_to_replace:end_index_to_replace] = replacements
-    print('-------just did weird thing--------')
-    print(groceries)
 
 
 # - print the updated combined list
