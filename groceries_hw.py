@@ -50,7 +50,8 @@ main_menu = '''
 5. Quit
 
 '''
-
+print('Welcome to the grocery list app! Please select from the following chices. ')
+print(main_menu)
 
 
 while True:
@@ -58,6 +59,7 @@ while True:
 
     # Add if/else statements for each menu item
     if menu_choice == 1:
+        indexes = range(len(groceries))
         for i in indexes:
             item = groceries[i]
             print(f'{i}: {item}')
@@ -65,16 +67,16 @@ while True:
         # Prompt for a new item until the just hit Enter
         while True:
             item = input('What do you need from the store? ')
-
             if item == '':  # Alternatively: check if len(item) == 0
                 break
             groceries.append(item)
+    #elif menu_choice == 3:
 
 
-print(main_menu)
+#print(main_menu)    
     # For each of these, add in code to handle adding/editing/removing items
 
-    if menu_choice == 5:
+    elif menu_choice == 5:
         break
 
 # Start with an empty grocery list
