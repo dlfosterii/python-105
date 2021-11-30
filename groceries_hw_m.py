@@ -50,6 +50,17 @@ main_menu = '''
 5. Quit
 
 '''
+
+sub_menu = '''
+
+1. Print items
+2. Delete an item
+3. Delete multiple items
+4. Return to main menu
+
+'''
+
+
 print('Welcome to the grocery list app! Please select from the following chices. ')
 print(main_menu)
 
@@ -71,6 +82,9 @@ while True:
                 break
             groceries.append(item)
     elif menu_choice == 3: #removing groups of items
+        print(sub_menu)
+        sub_selection = int('Please enter selection: ')
+        
         indexes = range(len(groceries))
         for i in indexes:
             item = groceries[i]
@@ -100,7 +114,6 @@ while True:
             item = groceries[i]
             print(f'{i}: {item}')
         item_2b_deleted = int(input('Enter the item number to be deleted. '))
-        del groceries[item_2b_deleted]
     elif menu_choice == 5: #quit
         break
 
